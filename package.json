@@ -1,0 +1,43 @@
+{
+  "name": "x-frame",
+  "version": "0.0.0",
+  "description": "My impressive module",
+  "license": "MIT",
+  "repository": "lagden/x-frame",
+  "author": {
+    "name": "Thiago Lagden",
+    "email": "lagden@gmail.com",
+    "url": "lagden.in"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "xo && nyc ava"
+  },
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    ""
+  ],
+  "dependencies": {
+    "cheerio": "0.20.0",
+    "debug": "2.2.0",
+    "got": "6.3.0",
+    "pify": "2.3.0",
+    "query-string": "4.2.2"
+  },
+  "devDependencies": {
+    "ava": "^0.15.1",
+    "coveralls": "^2.11.9",
+    "nyc": "^6.4.0",
+    "xo": "^0.15.0"
+  },
+  "nyc": {
+    "reporter": [
+      "lcov",
+      "text"
+    ]
+  }
+}
