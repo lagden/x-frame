@@ -1,0 +1,13 @@
+{
+  "apps": [{
+    "name": "x-frame",
+    "script": "index.js",
+    "instances": 2,
+    "exec_mode": "cluster_mode",
+    "env": {
+      "NODE_ENV": "production",
+      "DEBUG": "http",
+      "PORT": "3537"
+    }
+  }]
+}

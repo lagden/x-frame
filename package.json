@@ -10,10 +10,12 @@
     "url": "lagden.in"
   },
   "engines": {
-    "node": ">=0.10.0"
+    "node": ">=4.0.0"
   },
   "scripts": {
-    "test": "xo && nyc ava"
+    "pretest": "xo",
+    "test": "nyc ava",
+    "start": "env DEBUG=http node index.js --harmony"
   },
   "files": [
     "index.js"
@@ -29,10 +31,17 @@
     "query-string": "4.2.2"
   },
   "devDependencies": {
-    "ava": "^0.15.1",
-    "coveralls": "^2.11.9",
-    "nyc": "^6.4.0",
-    "xo": "^0.15.0"
+    "ava": "0.15.1",
+    "coveralls": "2.11.9",
+    "nyc": "6.4.0",
+    "xo": "0.15.0"
+  },
+  "ava": {
+    "files": [
+      "test/index.js"
+    ],
+    "failFast": true,
+    "cacheEnabled": false
   },
   "nyc": {
     "reporter": [

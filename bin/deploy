@@ -1,0 +1,34 @@
+#!/bin/bash
+
+DIR="$( cd -P "$( dirname "$0" )" && pwd )"
+cd $DIR
+cd ..
+CURR_FOLDER=`pwd`
+
+# Root
+cd $CURR_FOLDER
+
+USER=tex
+SERVER=200.98.233.178
+DEPLOY_FOLDER="~/www/textecnologia/x-frame"
+ssh -T $USER@$SERVER <<EOF
+
+mkdir -p $DEPLOY_FOLDER
+exit
+
+EOF
+
+# Sync
+rsync $CURR_FOLDER/. $USER@$SERVER:$DEPLOY_FOLDER -azl -e ssh --recursive --exclude-from $CURR_FOLDER/.rsync-exclude --verbose > .rsync.log
+
+ssh -T tex@200.98.233.178 <<EOF
+cd $DEPLOY_FOLDER
+/usr/local/bin/npm install --production
+/usr/local/bin/pm2 startOrGracefulReload ecosystem.json --env production
+/usr/local/bin/pm2 save
+exit
+
+EOF
+
+cowsay 'Deploy finalizado... Yeahh!!'
+exit 0

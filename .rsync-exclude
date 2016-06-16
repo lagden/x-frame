@@ -1,0 +1,17 @@
+*.rdb
+*.md
+*.gif
+.*
+/bin
+/download/*.pdf
+/node_modules
+
+# Arquivos gerados pelo SO
+.DS_Store
+thumbs.db
+.arch-params
+.bzr
+_darcs
+.hg
+.monotone
+CVS
